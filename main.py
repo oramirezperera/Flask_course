@@ -4,6 +4,15 @@ app = Flask(__name__)
 
 todos = ['Buy coffe', 'Send the buy request', 'Send the product']
 
+
+@app.errorhandler(404)
+def not_found(error):
+    return render_template('404.html', error=error)
+
+@app.errorhandler(500)
+def server_down(error):
+    return render_template('500.html', error=error)
+
 @app.route('/')
 def index():
     user_ip = request.remote_addr
@@ -12,6 +21,7 @@ def index():
     response.set_cookie('user_ip',user_ip)
 
     return response
+
 
 @app.route('/hello')
 def hello():
