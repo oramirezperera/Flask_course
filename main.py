@@ -1,6 +1,8 @@
 from flask import Flask, request, make_response, redirect, render_template  
+from flask_bootstrap import Bootstrap
 
 app = Flask(__name__)
+bootstrap = Bootstrap(app)
 
 todos = ['Buy coffe', 'Send the buy request', 'Send the product']
 
@@ -9,9 +11,11 @@ todos = ['Buy coffe', 'Send the buy request', 'Send the product']
 def not_found(error):
     return render_template('404.html', error=error)
 
+
 @app.errorhandler(500)
 def server_down(error):
     return render_template('500.html', error=error)
+
 
 @app.route('/')
 def index():
