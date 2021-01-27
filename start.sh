@@ -1,7 +1,7 @@
 #!/bin/bash
 
 source venv/bin/activate
-pip install -r requierements.txt
+pip3 install -r requirements.txt
 source venv/bin/activate
 
 export FLASK_APP=main.py
