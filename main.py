@@ -9,6 +9,8 @@ from app import create_app
 
 app = create_app()
 
+todos = ['Buy coffe', 'Send the buy request', 'Send the product']
+
 class LoginForm(FlaskForm):
     username = StringField('User name', validators=[DataRequired()])
     password = PasswordField('Password', validators=[DataRequired()])
