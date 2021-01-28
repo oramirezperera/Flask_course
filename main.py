@@ -5,12 +5,9 @@ from wtforms.fields import StringField, PasswordField, SubmitField
 from wtforms.validators import DataRequired
 import unittest
 
-app = Flask(__name__)
-bootstrap = Bootstrap(app)
+from app import create_app
 
-app.config['SECRET_KEY'] = 'SUPER SECRETO'
-
-todos = ['Buy coffe', 'Send the buy request', 'Send the product']
+app = create_app()
 
 class LoginForm(FlaskForm):
     username = StringField('User name', validators=[DataRequired()])
